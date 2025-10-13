@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA-Powered Snake & Ladder</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/players.css">
+    <link rel="stylesheet" href="css/dice.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body class="bg-gray-100">
+
+    <div class="game-container">
+        <!-- Game Board Section -->
+        <div class="game-board-area">
+            <div id="board-container" class="board-container">
+                <div id="board" class="board"></div>
+                <div class="drawing-layer">
+                    <svg id="drawing-svg" preserveAspectRatio="none" viewBox="0 0 100 100"></svg>
+                </div>
+                <div id="player1" class="player-piece"></div>
+                <div id="player2" class="player-piece"></div>
+            </div>
+        </div>
+
+        <!-- Info & Controls Panel Section -->
+        <div class="info-panel">
+            <h1 class="text-4xl font-bold text-center text-gray-800 font-family-poppins">Snake & Ladder</h1>
+            <div id="turn-indicator" class="text-center text-2xl font-semibold my-6 p-3 rounded-lg transition-all duration-300">
+                Player 1's Turn
+            </div>
+            <div class="dice-area flex-grow flex justify-center items-center my-4">
+                <div id="dice" class="dice">
+                    <div class="face front">1</div>
+                    <div class="face back">6</div>
+                    <div class="face left">4</div>
+                    <div class="face right">3</div>
+                    <div class="face top">2</div>
+                    <div class="face bottom">5</div>
+                </div>
+            </div>
+            <div id="controls" class="space-y-4 mt-auto">
+                <button id="roll-dice-btn" class="btn w-full bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-lg shadow-md">
+                    Roll Dice
+                </button>
+                <button id="new-game-btn" class="btn w-full bg-gray-600 text-white font-bold py-3 px-4 rounded-xl text-lg shadow-md">
+                    New Game
+                </button>
+            </div>
+            <div class="mt-6">
+                <h3 class="font-bold text-xl text-gray-700 mb-2">Move History</h3>
+                <div id="move-history" class="h-40 bg-white/50 rounded-lg p-3 overflow-y-auto border border-gray-200"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Winner Modal -->
+    <div id="winner-modal" class="winner-modal hidden fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-2xl transform">
+            <h2 id="winner-text" class="text-4xl font-bold mb-4">Player 1 Wins!</h2>
+            <div id="game-stats" class="text-gray-600 mb-6"></div>
+            <button id="play-again-btn" class="btn bg-green-500 text-white font-bold py-3 px-6 rounded-xl text-lg">
+                Play Again
+            </button>
+        </div>
+    </div>
+
+    <!-- Data Structure Scripts -->
+    <script src="js/algorithms/stack.js"></script>
+    <script src="js/algorithms/queue.js"></script>
+    <script src="js/algorithms/search.js"></script>
+    <script src="js/algorithms/sort.js"></script>
+
+    <!-- Game Logic Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/snakesLadders.js"></script>
+    <script src="js/gameLogic.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
