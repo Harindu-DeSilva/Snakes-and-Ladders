@@ -1,0 +1,57 @@
+.player-piece {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4), inset 0px -2px 3px rgba(0,0,0,0.3);
+    border: 2px solid white;
+}
+
+#player1 {
+    background-color: var(--player1-color);
+}
+
+#player2 {
+    background-color: var(--player2-color);
+}
+
+.player-piece.active {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 20px 5px currentColor;
+}
+
+@keyframes land-on-ladder {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        box-shadow: 0 0 25px 8px var(--ladder-color);
+    }
+}
+
+@keyframes land-on-snake {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    50% {
+        box-shadow: 0 0 25px 8px var(--snake-color);
+    }
+}
+
+.land-ladder {
+    animation: land-on-ladder 0.8s ease-in-out;
+}
+
+.land-snake {
+    animation: land-on-snake 0.8s ease-in-out;
+}
