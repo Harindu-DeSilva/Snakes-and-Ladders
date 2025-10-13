@@ -1,0 +1,9 @@
+.winner-modal {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.winner-modal.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
