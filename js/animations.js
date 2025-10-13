@@ -25,4 +25,26 @@ const animations = {
             this.processQueue();
         }
     },
+
+    animateDice(roll, callback) {
+        const { diceEl } = window.game;
+        const randomX = (Math.floor(Math.random() * 4) + 4) * 360;
+        const randomY = (Math.floor(Math.random() * 4) + 4) * 360;
+        
+        const transforms = {
+            1: 'rotateY(0deg)',
+            2: 'rotateX(-90deg)',
+            3: 'rotateY(-90deg)',
+            4: 'rotateY(90deg)',
+            5: 'rotateX(90deg)',
+            6: 'rotateY(-180deg)'
+        };
+
+        diceEl.style.transform = `rotateX(${randomX}deg) rotateY(${randomY}deg)`;
+        
+        setTimeout(() => {
+            diceEl.style.transform = transforms[roll];
+            setTimeout(callback, 800);
+        }, 100);
+    }
 };
